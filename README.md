@@ -1,5 +1,6 @@
 # 🎃 Skinny - Native PumpkinMC World Chunk Pre-Generator
 
+[![Build Status](https://github.com/Someone-with-a-brain/skinny-pumpkin/actions/workflows/build.yml/badge.svg)](https://github.com/Someone-with-a-brain/skinny-pumpkin/actions)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 [![Target: WASM](https://img.shields.io/badge/Target-wasm32--wasip2-blue.svg)](https://pumpkinmc.org)
 
