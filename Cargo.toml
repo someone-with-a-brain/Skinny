@@ -1,0 +1,25 @@
+[package]
+name = "skinny_pumpkin"
+version = "1.0.0"
+edition = "2021"
+authors = ["Someone_with_a_brain <contact@github.com>"]
+description = "Native PumpkinMC world chunk pre-generator plugin (Chunky equivalent for PumpkinMC)"
+readme = "README.md"
+license = "MIT"
+repository = "https://github.com/Someone-with-a-brain/skinny-pumpkin"
+
+[lib]
+crate-type = ["cdylib", "rlib"]
+
+[dependencies]
+pumpkin-plugin-api = "0.1.0-dev+26.2-26.45"
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+tracing = "0.1"
+uuid = { version = "1.6", features = ["v4", "serde"] }
+
+[profile.release]
+opt-level = "z"
+lto = true
+codegen-units = 1
+
