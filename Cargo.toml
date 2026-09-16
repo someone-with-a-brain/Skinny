@@ -6,7 +6,7 @@ authors = ["Someone_with_a_brain <contact@github.com>"]
 description = "Native PumpkinMC world chunk pre-generator plugin (Chunky equivalent for PumpkinMC)"
 readme = "README.md"
 license = "MIT"
-repository = "https://github.com/Someone-with-a-brain/skinny-pumpkin"
+repository = "https://github.com/someone-with-a-brain/Skinny.git"
 
 [lib]
 crate-type = ["cdylib", "rlib"]

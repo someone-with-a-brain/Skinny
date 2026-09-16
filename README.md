@@ -67,7 +67,7 @@ target/wasm32-wasip2/release/skinny_pumpkin.wasm
 ## 👤 Author & AI Disclosure
 
 - **Author**: `Someone_with_a_brain`
-- **Repository**: [https://github.com/Someone-with-a-brain/skinny-pumpkin](https://github.com/Someone-with-a-brain/skinny-pumpkin)
+- **Repository**: [https://github.com/someone-with-a-brain/Skinny](https://github.com/someone-with-a-brain/Skinny)
 - **AI Attribution**: This plugin was designed and developed by **Someone_with_a_brain** with AI pair-programming assistance provided by **Google DeepMind Antigravity AI**.
 - **License**: MIT License
 
