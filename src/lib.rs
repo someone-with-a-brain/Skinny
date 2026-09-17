@@ -44,20 +44,12 @@ impl Plugin for SkinnyPlugin {
         info!(" Use /skinny [center|radius|shape|start|pause|cancel|progress] to operate.");
         info!("============================================================");
 
-        // Register /skinny command tree for Minecraft client-side tab-completion and autofill
-        let _ = context.register_command(
-            pumpkin_plugin_api::Command::new("skinny")
-                .description("Skinny World Pre-Generator command")
-                .then(pumpkin_plugin_api::Command::literal("center"))
-                .then(pumpkin_plugin_api::Command::literal("radius"))
-                .then(pumpkin_plugin_api::Command::literal("shape"))
-                .then(pumpkin_plugin_api::Command::literal("start"))
-                .then(pumpkin_plugin_api::Command::literal("pause"))
-                .then(pumpkin_plugin_api::Command::literal("continue"))
-                .then(pumpkin_plugin_api::Command::literal("cancel"))
-                .then(pumpkin_plugin_api::Command::literal("progress"))
-                .then(pumpkin_plugin_api::Command::literal("help"))
+        // Register /skinny command with description and permission node for PumpkinMC command dispatcher
+        let cmd = pumpkin_plugin_api::command::Command::new(
+            &["skinny".to_string()],
+            "Skinny World Pre-Generator administration command (/skinny center|radius|shape|start|pause|continue|cancel|progress)",
         );
+        context.register_command(cmd, "skinny.admin");
 
         Ok(())
     }
