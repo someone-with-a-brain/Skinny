@@ -31,11 +31,11 @@ impl Plugin for SkinnyPlugin {
         }
     }
 
-    fn on_load(&self, _context: Context) -> pumpkin_plugin_api::Result<()> {
+    fn on_load(&self, context: Context) -> pumpkin_plugin_api::Result<()> {
         info!("============================================================");
         info!(" Skinny World Pre-Generator v1.0.0 Initialized");
         info!(" Author: Someone_with_a_brain (AI-assisted)");
-        info!(" Repository: https://github.com/Someone-with-a-brain/skinny-pumpkin");
+        info!(" Repository: https://github.com/Someone-with-a-brain/Skinny");
         info!(" Target Engine: PumpkinMC Native WASM API");
         info!(
             " Default Bounds: Center ({}, {}) | Radius: {} blocks | Shape: {:?}",
@@ -43,6 +43,21 @@ impl Plugin for SkinnyPlugin {
         );
         info!(" Use /skinny [center|radius|shape|start|pause|cancel|progress] to operate.");
         info!("============================================================");
+
+        // Register /skinny command tree for Minecraft client-side tab-completion and autofill
+        let _ = context.register_command(
+            pumpkin_plugin_api::Command::new("skinny")
+                .description("Skinny World Pre-Generator command")
+                .then(pumpkin_plugin_api::Command::literal("center"))
+                .then(pumpkin_plugin_api::Command::literal("radius"))
+                .then(pumpkin_plugin_api::Command::literal("shape"))
+                .then(pumpkin_plugin_api::Command::literal("start"))
+                .then(pumpkin_plugin_api::Command::literal("pause"))
+                .then(pumpkin_plugin_api::Command::literal("continue"))
+                .then(pumpkin_plugin_api::Command::literal("cancel"))
+                .then(pumpkin_plugin_api::Command::literal("progress"))
+                .then(pumpkin_plugin_api::Command::literal("help"))
+        );
 
         Ok(())
     }
@@ -134,4 +149,3 @@ impl SkinnyPlugin {
 }
 
 pumpkin_plugin_api::register_plugin!(SkinnyPlugin);
-
