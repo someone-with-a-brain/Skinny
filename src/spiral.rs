@@ -95,4 +95,3 @@ impl ChunkSpiral {
         self.current_index = 0;
     }
 }
-

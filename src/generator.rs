@@ -97,4 +97,3 @@ impl PreGenTracker {
         (remaining_chunks as f64 / self.current_cps) as u64
     }
 }
-
