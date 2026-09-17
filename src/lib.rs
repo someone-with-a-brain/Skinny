@@ -41,7 +41,9 @@ impl Plugin for SkinnyPlugin {
 
     fn metadata(&self) -> PluginMetadata {
         PluginMetadata {
-            name: "Skinny World Pre-Generator".into(),
+            // Pumpkin uses this value as the namespace for plugin-defined
+            // permissions, so it must be a valid, stable identifier.
+            name: "skinny".into(),
             version: env!("CARGO_PKG_VERSION").into(),
             authors: vec!["Someone_with_a_brain".into()],
             description: "Native PumpkinMC world chunk pre-generator (Chunky equivalent). \
