@@ -11,6 +11,9 @@ use pumpkin_plugin_api::command::{
 };
 use pumpkin_plugin_api::command_wit::{Number, PermissionLevel};
 use pumpkin_plugin_api::commands::CommandHandler;
+use pumpkin_plugin_api::permission::{
+    Permission, PermissionDefault, PermissionLevel as PermissionNodeLevel,
+};
 use pumpkin_plugin_api::text::TextComponent;
 use pumpkin_plugin_api::{Context, Plugin, PluginMetadata};
 use spiral::Shape;
@@ -75,6 +78,17 @@ impl Plugin for SkinnyPlugin {
         let handler = SkinnyCommandHandler {
             state: Arc::clone(&self.state),
         };
+
+        // Command registration checks this permission before invoking a handler.
+        // Declare it explicitly and grant it to level-two operators by default;
+        // otherwise Pumpkin can complete `/skinny` but reject it as unknown.
+        context.register_permission(&Permission {
+            node: "skinny.admin".into(),
+            description: "Allows use of Skinny world pre-generation commands.".into(),
+            default: PermissionDefault::Op(PermissionNodeLevel::Two),
+            children: vec![],
+        })?;
+
         let cmd = Command::new(
             &["skinny".to_string()],
             "Skinny World Pre-Generator administration commands (operators only)",
